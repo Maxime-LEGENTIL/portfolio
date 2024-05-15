@@ -5,23 +5,30 @@
 {% block body %}
     {% include "fragments/_header.html.twig" %}
 
-    <div class="container">
+    <div class="container p-5">
+
+        {% if is_granted("ROLE_USER") %}
+            <div class="alert alert-danger">Vous êtes déjà connecté !</div>
+        {% else %}
         <form method="post">
             {% if error %}
                 <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
             {% endif %}
 
-            {% if app.user %}
+            {#{% if app.user %}
                 <div class="mb-3">
                     You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
                 </div>
-            {% endif %}
+            {% endif %}#}
 
-            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-            <label for="username">Email</label>
-            <input type="email" value="{{ last_username }}" name="_username" id="username" class="form-control" autocomplete="email" required autofocus>
-            <label for="password">Password</label>
-            <input type="password" name="_password" id="password" class="form-control" autocomplete="current-password" required>
+            <div class="text-center">
+                <h1 class="h3 mb-3 font-weight-normal">Connexion</h1>
+                <img src="https://cdn.pixabay.com/photo/2016/03/31/19/56/avatar-1295397__340.png" alt="Image d'un pingouin" class="img-fluid rounded-circle" style="height: 150px;">
+            </div>
+            <label for="username">Adresse email</label>
+            <input type="email" value="{{ last_username }}" name="_username" id="username" class="form-control mt-3 mb-3" autocomplete="email" required autofocus>
+            <label for="password">Mot de passe</label>
+            <input type="password" name="_password" id="password" class="form-control mt-3 mb-3" autocomplete="current-password" required>
 
             <input type="hidden" name="_csrf_token"
                 value="{{ csrf_token('authenticate') }}"
@@ -38,11 +45,27 @@
                 </div>
             #}
 
-            <button class="btn btn-lg btn-primary" type="submit">
-                Sign in
+            <button class="btn btn-primary" type="submit">
+                Connexion
             </button>
         </form>
+        {% endif %}
     </div>
+
+    <section class="container-fluid bg-body-tertiary">
+        <div class="container py-5">
+            <div class="text-center">
+                <h2 class="pb-3">CONTACT</h2>
+                <h3>Une opportunité ? Contactez-moi <i class="fa-solid fa-hand"></i></h3>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-6 col-sm-12 text-center mb-4 mt-4">
+                    <i class="fa-solid fa-envelope" style="font-size: 25px;"></i>
+                    <span>maxime.legentil17@gmail.com</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
     {% include "fragments/_footer.html.twig" %}
 

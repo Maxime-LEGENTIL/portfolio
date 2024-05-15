@@ -1,7 +1,7 @@
 <header class="bg-black sticky-top">
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-            <a class="navbar-brand text-white" href="index.html">Maxime LE GENTIL</a>
+            <a class="navbar-brand text-white" href={{ path('app_main_index') }}>Maxime LE GENTIL</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -24,7 +24,15 @@
                     <a class="text-white me-3 fs-3" href="https://www.linkedin.com/in/maxime-le-gentil/" target="_blank">
                         <i class="fa-brands fa-linkedin"></i>
                     </a>
-                    <a href="mailto:maxime.legentil17@gmail.com" class="btn text-white" role="button" style="background-color: #5D21D0;">Contact</a>
+                    {% if is_granted("ROLE_USER") %}
+                    <a class="text-white me-3 btn" href={{ path('app_security_logout') }} role="button" target="_blank">
+                        Déconnexion
+                    </a>
+                    {% else %}
+                    <a class="text-white me-3 btn" href={{ path('app_security_login') }} role="button" target="_blank">
+                        Connexion
+                    </a>
+                    {% endif %}
                 </div>
             </div>
         </div>
