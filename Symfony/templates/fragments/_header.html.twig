@@ -8,14 +8,19 @@
             <div class="collapse navbar-collapse justify-content-between align-items-center" id="navbarTogglerDemo01">
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link text-white" href={{ path('app_main_index') }}>Accueil</a>
+                        <a class="nav-link fw-bold text-white" href={{ path('app_main_index') }}>Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href={{ path('app_blog_index') }}>Blog</a>
+                        <a class="nav-link fw-bold text-white" href={{ path('app_blog_index') }}>Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" target="_blank" href={{ asset('CV.pdf') }}>CV</a>
+                        <a class="nav-link fw-bold text-white" target="_blank" href={{ asset('CV.pdf') }}>CV</a>
                     </li>
+                    {% if is_granted("ROLE_ADMIN") %}
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold text-danger" target="_blank" href={{ path('app_admin_index') }}>Administration</a>
+                    </li>
+                    {% endif %}
                 </ul>
                 <div class="d-flex">
                     <a class="text-white me-3 fs-3" href="https://github.com/Maxime-LEGENTIL" target="_blank">
@@ -27,10 +32,6 @@
                     {% if is_granted("ROLE_USER") %}
                     <a class="text-white me-3 btn" href={{ path('app_security_logout') }} role="button" target="_blank">
                         Déconnexion
-                    </a>
-                    {% else %}
-                    <a class="text-white me-3 btn" href={{ path('app_security_login') }} role="button" target="_blank">
-                        Connexion
                     </a>
                     {% endif %}
                 </div>
