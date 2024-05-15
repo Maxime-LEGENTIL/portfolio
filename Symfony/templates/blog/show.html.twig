@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Blog - Portfolio Développeur web Fullstack{% endblock %}
+
+{% block body %}
+    {% include "fragments/_header.html.twig" %}
+
+       <div class="container my-5">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb breadcrumb-custom overflow-hidden text-center bg-body-tertiary border rounded-3 p-5">
+                <li class="breadcrumb-item">
+                    <a class="link-body-emphasis fw-semibold text-decoration-none" href="#">
+                        <svg class="bi" width="16" height="16"><use xlink:href="#house-door-fill"></use></svg>
+                            Accueil
+                    </a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a class="link-body-emphasis fw-semibold text-decoration-none" href={{ path('app_blog_index') }}>Blog</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                    {{ article.title }}
+                </li>
+            </ol>
+        </nav>
+    </div>
+
+    <section class="container mt-5 mb-5">
+        <div class="row">
+            <!-- Premier article -->
+            <div class="col-md-12">
+                <small class="card-text">
+                    <i class="fa-solid fa-user"></i> <span class="text-secondary-emphasis">par {{ article.author.firstname }}</span>
+                    <span class="text-secondary-emphasis">le {{ article.createdat|date('d/m/Y') }}</span>
+                </small>
+            </div>
+            <div class="col-md-12 pt-3">
+                {{ article.content }}
+            </div>
+        </div>
+    </section>
+    
+
+
+    <section class="container-fluid bg-body-tertiary">
+        <div class="container py-5">
+            <div class="text-center">
+                <h2 class="pb-3">CONTACT</h2>
+                <h3>Une opportunité ? Contactez-moi <i class="fa-solid fa-hand"></i></h3>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-6 col-sm-12 text-center mb-4 mt-4">
+                    <i class="fa-solid fa-envelope" style="font-size: 25px;"></i>
+                    <span>maxime.legentil17@gmail.com</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% include "fragments/_footer.html.twig" %}
+{% endblock %}

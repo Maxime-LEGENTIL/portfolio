@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Blog - Portfolio Développeur web Fullstack{% endblock %}
+
+{% block body %}
+    {% include "fragments/_header.html.twig" %}
+
+    <div class="container my-5">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb breadcrumb-custom overflow-hidden text-center bg-body-tertiary border rounded-3 p-5">
+                <li class="breadcrumb-item">
+                    <a class="link-body-emphasis fw-semibold text-decoration-none" href={{ path('app_main_index') }}>
+                        <svg class="bi" width="16" height="16"><use xlink:href="#house-door-fill"></use></svg>
+                            Accueil
+                    </a>
+                </li>
+                <!--<li class="breadcrumb-item">
+                    <a class="link-body-emphasis fw-semibold text-decoration-none" href="#">Library</a>
+                </li>-->
+                <li class="breadcrumb-item active" aria-current="page">
+                    Blog
+                </li>
+            </ol>
+        </nav>
+    </div>
+
+    <section class="container mt-5">
+        <div class="row">
+            {% if articles is empty %}
+            <div class="text-center text-danger p-5">
+                <i class="fa-solid fa-pen-nib" style="font-size: 40px; color: black;"></i>
+                <h1 class="pt-3">Il n'y a encore aucun article posté.</h1>
+                <h2 class="pt-5">Veuillez patienter qu'un administrateur ajoute un article au blog.</h2>
+            </div>
+            {% endif %}
+            
+            {% for article in articles %}
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <img src={{ article.image }} class="card-img-top img-fluid" alt="Image de l'article" style="height: 400px;">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <small class="card-text"><i class="fa-solid fa-user"></i> <span class="text-secondary-emphasis">{{ article.author.firstname }}</span></small>
+                                </div>
+                                <div class="col text-end">
+                                    <small class="card-text"><i class="fa-regular fa-calendar-check"></i> <span class="text-secondary-emphasis">{{ article.createdat|date('d/m/Y') }}</span></small>
+                                </div>
+                            </div>
+                            <h4 class="card-title pt-4">{{ article.title }}</h4>
+                            <p class="card-text">{{ article.content }}</p>
+                            <a href={{ path('app_blog_show', {slug: article.title|slug('-'), id: article.id}) }} class="btn btn-primary">Lire la suite...</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+    
+
+
+    <section class="container-fluid bg-body-tertiary">
+        <div class="container py-5">
+            <div class="text-center">
+                <h2 class="pb-3">CONTACT</h2>
+                <h3>Une opportunité ? Contactez-moi <i class="fa-solid fa-hand"></i></h3>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-6 col-sm-12 text-center mb-4 mt-4">
+                    <i class="fa-solid fa-envelope" style="font-size: 25px;"></i>
+                    <span>maxime.legentil17@gmail.com</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% include "fragments/_footer.html.twig" %}
+{% endblock %}

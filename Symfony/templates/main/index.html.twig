@@ -1,0 +1,112 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Portfolio Développeur web Fullstack{% endblock %}
+
+{% block body %}
+    {% include "fragments/_header.html.twig" %}
+
+    <section class="container p-5">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h1><i class="fa-solid fa-terminal"></i> Développeur web Fullstack</h1>
+                <small>Je m'appelle Maxime LE GENTIL et je suis un développeur web fullstack passionné basé à proximité de La Rochelle <i class="fa-solid fa-map-location-dot"></i></small>
+            </div>
+            <div class="col-md-6 text-center">
+                <img src="https://avatars.githubusercontent.com/u/137884156?v=4" class="img-fluid rounded-circle" style="width: 230px; height: 230px;" alt="Ma photo de profil">
+
+            </div>
+        </div>
+    </section>
+
+    <section class="container-fluid bg-body-tertiary">
+        <div class="container p-5">
+            <div class="text-center">
+                <h2 class="pb-3">A PROPOS DE MOI</h2>
+                <img src="https://cdni.iconscout.com/illustration/premium/thumb/web-developer-working-on-project-4550335-3779143.png?f=webp" class="img-fluid w-25 rounded-circle" alt="Image SVG d'un développeur Fullstack">
+                <p class="pt-3">Développeur web Fullstack passionné depuis l'adolescence, je suis en capacité de créer des applications web dynamiques et adaptées à vos besoins. Je maîtrise et utilise différents types de langages et framewort ainsi que des librairies pour garantir une expérience utilisateur optimale. Je pratique de la veille régulièrement afin de rester au gout du jour.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container-fluid">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-3 col-md-6 col-sm-12 text-center mb-4">
+                    <i class="fa-solid fa-code" style="font-size: 40px;"></i>
+                    <h4>Développement <b>Back-end</b></h4>
+                    <small>Traitement de données, API, Algorithmie...</small>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 text-center mb-4">
+                    <i class="fa-solid fa-laptop" style="font-size: 40px;"></i>
+                    <h4>Développement <b>Front-end</b></h4>
+                    <small>Intégration, Responsive design, SEO...</small>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 text-center mb-4">
+                    <i class="fa-solid fa-gear" style="font-size: 40px;"></i>
+                    <h4>Maintenance</h4>
+                    <small>Résolution de bugs, mise à jour...</small>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 text-center mb-4">
+                    <i class="fa-solid fa-circle-info" style="font-size: 40px;"></i>
+                    <h4>Conseils</h4>
+                    <small>Accompagnement sur vos futurs projets...</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="container-fluid bg-body-tertiary">
+        <div class="container py-5">
+            <div class="text-center">
+                <h2 class="pb-3">TECHNOLOGIES</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-2 col-md-2 col-sm-12 text-center mb-4">
+                    <p>PHP</p>
+                    <i class="fa-brands fa-php" style="font-size: 40px; color: rgb(98, 98, 201);"></i>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-12 text-center mb-4">
+                    <p>Symfony</p>
+                    <i class="fa-brands fa-symfony" style="font-size: 40px; color: rgb(48, 43, 43);"></i>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-12 text-center mb-4">
+                    <p>Javascript</p>
+                    <i class="fa-brands fa-js" style="font-size: 40px; color: rgb(121, 121, 25);"></i>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-12 text-center mb-4">
+                    <p>Wordpress</p>
+                    <i class="fa-brands fa-wordpress" style="font-size: 40px; color: rgb(112, 39, 51);"></i>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-12 text-center mb-4">
+                    <p>Bootstrap</p>
+                    <i class="fa-brands fa-bootstrap" style="font-size: 40px; color: rgb(67, 67, 143);"></i>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-12 text-center mb-4">
+                    <p>SQL</p>
+                    <i class="fa-solid fa-database" style="font-size: 40px; color: rgb(39, 95, 39);"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="container-fluid">
+        <div class="container py-5">
+            <div class="text-center">
+                <h2 class="pb-3">CONTACT</h2>
+                <h3>Une opportunité ? Contactez-moi <i class="fa-solid fa-hand"></i></h3>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-6 col-sm-12 text-center mb-4 mt-4">
+                    <i class="fa-solid fa-envelope" style="font-size: 25px;"></i>
+                    <span>maxime.legentil17@gmail.com</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    {% include "fragments/_footer.html.twig" %}
+{% endblock %}
